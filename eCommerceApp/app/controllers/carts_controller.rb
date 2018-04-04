@@ -4,17 +4,19 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = Cart.all
+    @carts = current_user.carts.all
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
+
   end
 
   # GET /carts/new
   def new
     @cart = Cart.new
+    @cart.user_id = current_user.id
   end
 
   # GET /carts/1/edit
