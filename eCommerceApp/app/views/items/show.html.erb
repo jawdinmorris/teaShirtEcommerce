@@ -12,7 +12,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @item.image %>
+  <%= image_tag @item.image_url %>
 </p>
 
 <p>
@@ -30,10 +30,7 @@
   <%= @item.visibility %>
 </p>
 
-<p>
-  <strong>Order:</strong>
-  <%= @item.order %>
-</p>
+
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
