@@ -54,3 +54,6 @@ gem "carrierwave", "~> 1.2"
 
 # Added at 2018-04-04 11:02:40 +1000 by jorda:
 gem "cloudinary", "~> 1.9"
+
+# Added at 2018-04-04 11:06:09 +1000 by jorda:
+gem "devise", "~> 4.4"
