@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :orders
   resources :items
   root to: "pages#index"
   devise_for :users, controllers: {
