@@ -1,0 +1,9 @@
+<div class = "container">
+<h1> <%= @user.first_name %> <%= @user.last_name %> <h1>
+<h2> Contact </h2>
+<ul>
+<li><%= @user.email %></li>
+<li><%= @user.address %></li>
+</ul>
+<%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-link" %>
+</div>
