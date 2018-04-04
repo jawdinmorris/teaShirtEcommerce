@@ -6,13 +6,14 @@
 <div class="container_grid">
     <% @items.each do |item| %>
       <div class="item_box">
-        <div><%= image_tag item.image_url %></div>
-        <div><%= item.name %></div>
+        <div><%= image_tag item.image_url(:product_image) %></div>
+        <div style="font-weight: bolder;"><%= item.name %></div>
         <div><%= item.description %></div>
-        <div>$<%= item.price %></div>
+        <div style="font-weight: bolder;">$<%= item.price %></div>
         <%= link_to 'Show', item %>
         <%= link_to 'Edit', edit_item_path(item) %>
         <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Add to cart', item %>
       </div>
     <% end %>
 </div>
