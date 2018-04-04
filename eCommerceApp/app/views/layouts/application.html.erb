@@ -31,7 +31,11 @@
           <% if user_signed_in? %>
 
           <li class="nav-item">
+
             <%= link_to 'Profile', edit_user_registration_path, class: "nav-link active" %>
+
+            <%= link_to "Profile", current_user, class: "nav-link" %>
+
           </li>
           <li class="nav-item">
             <%= link_to 'Log out', destroy_user_session_path, class: "nav-link active", method: :delete %>

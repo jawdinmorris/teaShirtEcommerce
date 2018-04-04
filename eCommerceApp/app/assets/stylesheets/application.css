@@ -19,6 +19,7 @@
    vertical-align: middle;
    padding: .5rem 1rem;
 }
+
 .nav_bg
 {
   background: #9fcf31;
@@ -27,4 +28,49 @@
 .nav_coloring
 {
   color: white;
+=======
+
+#landing_header {
+    z-index: 1;
+    position: relative;
+    text-align: center;
+    margin: 0;
+    height: 92.8%;
+    background-color: #006666;
+
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0
+}
+
+#landing_header h1 {
+    color: #fff;
+    text-shadow: 5px 5px 8px black;
+    padding-top: 10vh;
+}
+
+#landing_header h2 {
+    color: #fff;
+    text-shadow: 5px 5px 8px black;
+    padding-top: 10vh;
+}
+
+#landing_header .btn-transparent {
+    margin-top: 10vh;
+    background: transparent;
+    color: #F2F2F2;
+    -webkit-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -moz-transition: background .2s ease-in-out, border .2s ease-in-out;
+    -o-transition: background .2s ease-in-out, border .2s ease-in-out;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+    border: 2px solid white;
+}
+
+#landing_header .btn-transparent:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+
 }
