@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: cloudkito
+  api_key: '392761279346125'
+  api_secret: YXGYAqi4Vr4P_Ic5utx7fQ69rkc
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: cloudkito
+  api_key: '392761279346125'
+  api_secret: YXGYAqi4Vr4P_Ic5utx7fQ69rkc
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: cloudkito
+  api_key: '392761279346125'
+  api_secret: YXGYAqi4Vr4P_Ic5utx7fQ69rkc
+  enhance_image_tag: true
+  static_image_support: false
