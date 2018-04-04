@@ -6,9 +6,12 @@
   <thead>
     <tr>
       <th>Item</th>
-      <th>User</th>
+      <th>Price</th>
       <th>Quantity</th>
-      <th colspan="3"></th>
+      <th>Sub Total</th>
+      <th>GST</th>
+      <th>Total</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 <% if @carts != nil  %>
@@ -16,12 +19,12 @@
     <% @carts.each do |cart| %>
       <tr>
         <td><%= cart.item.name %></td>
-        <td><%= cart.user.first_name %></td>
+        <td><%= cart.item.price %></td>
         <td><%= cart.quantity %></td>
         <td><%= cart.quantity * cart.item.price %></td>
-        <td><%= link_to 'Show', cart %></td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= cart.quantity * cart.item.price * 0.1 %></td>
+        <td><%= cart.quantity * cart.item.price + (0.1 * cart.quantity * cart.item.price) %></td>
+        <td><%= link_to 'Delete', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
