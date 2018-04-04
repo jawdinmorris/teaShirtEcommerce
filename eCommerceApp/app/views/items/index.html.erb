@@ -13,7 +13,7 @@
         <%= link_to 'Show', item %>
         <%= link_to 'Edit', edit_item_path(item) %>
         <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <%= link_to 'Add to cart', item %>
+        <%= render 'carts/form', cart: Cart.new(user_id: current_user.id, item_id: item.id) %>
       </div>
     <% end %>
 </div>

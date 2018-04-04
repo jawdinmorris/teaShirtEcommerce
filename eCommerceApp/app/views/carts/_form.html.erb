@@ -12,13 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :item_id %>
-    <%= form.text_field :item_id, id: :cart_item_id %>
+    <%= form.hidden_field :item_id, id: :cart_item_id %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :cart_user_id %>
+    <%= form.hidden_field :user_id, id: :cart_user_id %>
   </div>
 
   <div class="field">
