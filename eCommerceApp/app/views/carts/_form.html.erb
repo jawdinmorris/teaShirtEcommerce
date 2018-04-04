@@ -20,11 +20,14 @@
   </div>
 
   <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, id: :cart_quantity %>
+      <p>Quantity:  <%= form.number_field :quantity, id: :cart_quantity, class: "cart_qty_field", value: "" %></p>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <label  class="btn btn-outline-light btn-lg"><%= button_text %>
+      <span style="display: none;">
+        <%= form.submit %>
+      </span>
+    </label>
   </div>
 <% end %>
