@@ -23,6 +23,7 @@
 
 <div class="container_grid">
     <% @items.each do |item| %>
+
       <% cart_check = current_user.carts.where(item_id: item.id) %>
       <div class="item_box initial_hide all <%= item.category %>">
       <div class="img_box" ><%= image_tag item.image_url(:product_image), class: "item_img" %></div>
@@ -33,6 +34,16 @@
       <%= link_to 'Show', item %>
       <%= link_to 'Edit', edit_item_path(item) %>
       <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+      <div class="item_box">
+        <div ><%= image_tag item.image_url(:product_image), class: "item_img" %></div>
+        <div style="font-weight: bolder;"><%= item.name %></div>
+
+        <div style="font-weight: bolder;">$<%= item.price %></div>
+        <%= link_to 'Details', item %>
+        <%= link_to 'Edit', edit_item_path(item) %>
+        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
+
 
         <% if user_signed_in? %>
 
