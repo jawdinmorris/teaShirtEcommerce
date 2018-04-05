@@ -13,3 +13,12 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+
+  $('.category_button').click(function() {
+         $('.initial_hide').not('.' + $(this).data('cat')).fadeOut();
+         $('.' + $(this).data('cat')).fadeIn();
+     });
+});

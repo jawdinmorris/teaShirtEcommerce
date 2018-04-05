@@ -7,9 +7,8 @@
     <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.3.1.js' %>
     <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js' %>
-    <%= javascript_include_tag 'https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=' %>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -32,9 +31,8 @@
 
           <li class="nav-item">
 
-            <%= link_to 'Profile', edit_user_registration_path, class: "nav-link active" %>
 
-            <%= link_to "Profile", current_user, class: "nav-link" %>
+            <%= link_to "Profile", current_user, class: "nav-link active" %>
 
           </li>
           <li class="nav-item">
@@ -51,6 +49,12 @@
             <%= link_to 'Sign Up', new_user_registration_path, class: "nav-link active" %>
           </li>
           <% end %>
+          <ul class="navbar-nav mr-0">
+
+            <li class="nav-item">
+              <%= link_to 'View Produce', items_path, class: "nav-link active" %>
+            </li>
+          </ul>
 
         </ul>
         <% if user_signed_in? %>

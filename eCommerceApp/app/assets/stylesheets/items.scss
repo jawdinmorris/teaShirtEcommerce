@@ -7,7 +7,7 @@
 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 1em;
   margin: 20px;
   color: white;
 }
@@ -16,7 +16,7 @@
   background-color: #9fcf31;
   text-align: center;
   border-radius: 10px;
-
+  width: 21em;
 }
 .item_box div
 {
@@ -25,7 +25,16 @@
 }
 .item_img
 {
+  width: 100%;
+  align-self: center;
+}
+.img_box
+{
+  display: flex;
+  overflow: hidden;
   background: white;
+  width: 12em;
+  height: 12em;
   margin: 1em;
   padding: 1em;
   border-radius: 10px;
