@@ -4,19 +4,18 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
-    @carts = current_user.carts.all
+    @carts = Cart.all
   end
 
   # GET /carts/1
   # GET /carts/1.json
   def show
-
+    @carts = Cart.current_user
   end
 
   # GET /carts/new
   def new
     @cart = Cart.new
-    @cart.user_id = current_user.id
   end
 
   # GET /carts/1/edit
@@ -27,10 +26,12 @@ class CartsController < ApplicationController
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
+    @cart.item.stock_status -= @cart.quantity
+    @cart.item.save
 
     respond_to do |format|
       if @cart.save
-        format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
+        format.html { redirect_to carts_path, notice: 'Cart was successfully created.' }
         format.json { render :show, status: :created, location: @cart }
       else
         format.html { render :new }
@@ -44,7 +45,7 @@ class CartsController < ApplicationController
   def update
     respond_to do |format|
       if @cart.update(cart_params)
-        format.html { redirect_to @cart, notice: 'Cart was successfully updated.' }
+        format.html { redirect_to carts_path, notice: 'Cart was successfully updated.' }
         format.json { render :show, status: :ok, location: @cart }
       else
         format.html { render :edit }

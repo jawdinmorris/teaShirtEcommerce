@@ -1,36 +1,31 @@
 <p id="notice"><%= notice %></p>
+<div class=item_show>
 
+  <p>
+  <%= image_tag @item.image_url(:product_image), class: 'image'%>
+  </p>
+
+<div class=flex_box>
 <p>
   <strong>Name:</strong>
   <%= @item.name %>
 </p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <%= image_tag @item.image_url %>
-</p>
-
 <p>
   <strong>Price:</strong>
-  <%= @item.price %>
+  $<%= @item.price %>
 </p>
 
 <p>
   <strong>Stock status:</strong>
   <%= @item.stock_status %>
 </p>
-
+</div>
 <p>
-  <strong>Visibility:</strong>
-  <%= @item.visibility %>
+  <strong>Description:</strong>
+  <%= @item.description %>
 </p>
-
 
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
+</div>

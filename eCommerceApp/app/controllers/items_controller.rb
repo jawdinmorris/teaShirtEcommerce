@@ -7,6 +7,10 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def admin_show
+    @items = Item.all
+  end
+
   # GET /items/1
   # GET /items/1.json
   def show
@@ -69,6 +73,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :description, :image, :price, :stock_status, :visibility, :order_id)
+      params.require(:item).permit(:name, :description, :image, :price, :stock_status, :visible, :order_id, :category)
     end
 end

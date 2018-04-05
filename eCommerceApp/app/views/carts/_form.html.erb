@@ -12,21 +12,22 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :item_id %>
-    <%= form.text_field :item_id, id: :cart_item_id %>
+    <%= form.hidden_field :item_id, id: :cart_item_id %>
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :cart_user_id %>
+    <%= form.hidden_field :user_id, id: :cart_user_id %>
   </div>
 
   <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, id: :cart_quantity %>
+      <p>Quantity:  <%= form.number_field :quantity, id: :cart_quantity, class: "cart_qty_field", value: "" %></p>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <label  class="btn btn-outline-light btn-lg"><%= button_text %>
+      <span style="display: none;">
+        <%= form.submit %>
+      </span>
+    </label>
   </div>
 <% end %>
