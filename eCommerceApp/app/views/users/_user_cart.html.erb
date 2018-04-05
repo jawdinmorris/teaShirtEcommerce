@@ -1,0 +1,44 @@
+
+<div class=cart>
+<h1>My Cart</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Item</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th>Sub Total</th>
+      <th>GST</th>
+      <th>Total</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+<% if @user.carts != nil  %>
+  <tbody>
+
+
+    <% @user.carts.each do |cart| %>
+
+    <% price = cart.quantity * cart.item.price %>
+
+      <tr>
+        <td><%= image_tag cart.item.image_url(:thumb) %></td>
+        <td><%= cart.item.name %></td>
+        <td>$<%= cart.item.price %></td>
+        <td><%= cart.quantity %></td>
+        <td>$<%= price %></td>
+        <td>$<%= price * 0.1 %></td>
+        <td>$<%= price + (0.1 * price) %></td>
+        <td><%= link_to 'Details', controller: :items, action: :show, id: cart.item.id %>
+        <td><%= link_to 'Delete', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+    <% end %>
+
+
+  </tbody>
+</table>
+ <% end %>
+</div>
