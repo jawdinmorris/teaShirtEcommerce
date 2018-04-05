@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+// This is the index
 .container_grid
 {
   display: grid;
@@ -39,4 +39,31 @@
   padding: 1em;
   border-radius: 10px;
   border: 5px solid white ;
+}
+
+// This is for the show
+.item_show
+{
+  background-color: #9fcf31;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
+  border-radius: 30px;
+  padding: 30px 0;
+
+}
+.flex_box
+{
+  display: flex;
+  width: 100%;
+  padding: 0 10%;
+  // flex-direction: row;
+  // flex-flow: row wrap;
+  // align-self: center;
+  justify-content: space-around;
+}
+.image
+{
+
+  left: 60%;
 }

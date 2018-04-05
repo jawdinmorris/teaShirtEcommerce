@@ -6,22 +6,28 @@
   <thead>
     <tr>
       <th>Item</th>
-      <th>User</th>
+      <th>Price</th>
       <th>Quantity</th>
-      <th colspan="3"></th>
+      <th>Sub Total</th>
+      <th>GST</th>
+      <th>Total</th>
+      <th colspan="6"></th>
     </tr>
   </thead>
 <% if @carts != nil  %>
   <tbody>
     <% @carts.each do |cart| %>
+    <% price = cart.quantity * cart.item.price %>
+
       <tr>
         <td><%= cart.item.name %></td>
-        <td><%= cart.user.first_name %></td>
+        <td><%= cart.item.price %></td>
         <td><%= cart.quantity %></td>
-        <td><%= cart.quantity * cart.item.price %></td>
-        <td><%= link_to 'Show', cart %></td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
-        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= price %></td>
+        <td><%= price * 0.1 %></td>
+        <td><%= price + (0.1 * price) %></td>
+        <td><%= link_to 'Details', controller: :items, action: :show, id: cart.item.id %>
+        <td><%= link_to 'Delete', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
