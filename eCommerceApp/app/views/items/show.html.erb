@@ -1,11 +1,10 @@
 <p id="notice"><%= notice %></p>
 <div class=item_show>
-<div class=image>
-  <p>
 
-    <%= image_tag @item.image_url %>
+  <p>
+  <%= image_tag @item.image_url(:product_image), class: 'image'%>
   </p>
-</div>
+
 <div class=flex_box>
 <p>
   <strong>Name:</strong>
@@ -13,7 +12,7 @@
 </p>
 <p>
   <strong>Price:</strong>
-  <%= @item.price %>
+  $<%= @item.price %>
 </p>
 
 <p>
