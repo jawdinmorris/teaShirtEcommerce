@@ -10,17 +10,19 @@
   </li>
 
   <% category_array = [] %>
+<% if @carts != nil %>
   <% @items.each do |item| %>
 
       <% category_array.push(item.category)%>
 
   <% end %>
+
   <% category_array.uniq!.each do |category| %>
   <li class="nav-item">
     <button class="category_button" data-cat="<%= category %>" onclick="button()"><%= category %></button>
   </li>
   <% end %>
-
+  <% end %>
 
 </ul>
 
