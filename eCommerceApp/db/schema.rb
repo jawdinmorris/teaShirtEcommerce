@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180405040904) do
+ActiveRecord::Schema.define(version: 20180405081632) do
 
   create_table "carts", force: :cascade do |t|
     t.integer "item_id"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 20180405040904) do
     t.string "first_name"
     t.string "last_name"
     t.string "address"
+    t.boolean "admin"
+    t.boolean "enabled"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

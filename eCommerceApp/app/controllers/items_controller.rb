@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin_rights, only: [:admin_show, :new, :edit, :update, :destroy]
+
+
 
   # GET /items
   # GET /items.json
@@ -69,6 +72,13 @@ class ItemsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_item
       @item = Item.find(params[:id])
+    end
+
+    def set_admin_rights
+      @admin = current_user.admin
+      if current_user.admin != true
+        redirect_to items_url, notice: 'You are not authorised to perform this action.'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
