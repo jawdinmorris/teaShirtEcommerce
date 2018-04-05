@@ -17,13 +17,16 @@
 <% if @carts != nil  %>
   <tbody>
     <% @carts.each do |cart| %>
+    <% price = cart.quantity * cart.item.price %>
+
       <tr>
         <td><%= cart.item.name %></td>
         <td><%= cart.item.price %></td>
         <td><%= cart.quantity %></td>
-        <td><%= cart.quantity * cart.item.price %></td>
-        <td><%= cart.quantity * cart.item.price * 0.1 %></td>
-        <td><%= cart.quantity * cart.item.price + (0.1 * cart.quantity * cart.item.price) %></td>
+        <td><%= price %></td>
+        <td><%= price * 0.1 %></td>
+        <td><%= price + (0.1 * price) %></td>
+        <td><%= link_to 'Details', controller: :items, action: :show, id: cart.item.id %>
         <td><%= link_to 'Delete', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

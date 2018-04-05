@@ -32,10 +32,9 @@
     <% @carts.each do |cart| %>
       <tr>
         <td><%= cart.item %></td>
-        <td><%= cart.user %></td>
+        <td><%= cart.item.price %></td>
         <td><%= cart.quantity %></td>
-        <td><%= link_to 'Show', cart %></td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
+        <td><%= link_to 'Details', cart %></td>
         <td><%= link_to 'Delete', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
