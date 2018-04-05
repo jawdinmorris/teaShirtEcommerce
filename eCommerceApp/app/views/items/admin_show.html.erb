@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+<p style="text-align: center;">
+  <%= link_to 'New Item', new_item_path, class: "btn btn-warning btn-lg" %>
+</p>
 
 <ul class="nav justify-content-center">
   <li class="nav-item">
@@ -23,7 +26,6 @@
 
 <div class="container_grid">
     <% @items.each do |item| %>
-      <% if item.visible == true %>
         <% cart_check = current_user.carts.where(item_id: item.id) %>
         <div class="item_box initial_hide all <%= item.category %>">
         <div class="img_box" ><%= image_tag item.image_url(:product_image), class: "item_img" %></div>
@@ -32,7 +34,8 @@
         <div style="font-weight: bolder;">$<%= item.price %></div>
         <div style="font-weight: bolder;">Stock level: <%= item.stock_status %></div>
         <%= link_to 'Show', item %>
-        
+        <%= link_to 'Edit', edit_item_path(item) %>
+        <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% if user_signed_in? %>
             <% if cart_check.empty? || cart_check[0].quantity == 0 %>
             <%= render 'carts/form', cart: Cart.new(user_id: current_user.id, item_id: item.id), text_before: "Quantity: ", button_text: "add to cart"  %>
@@ -42,12 +45,9 @@
 
             <% end %>
           <% end %>
-        <% end %>
       </div>
     <% end %>
 </div>
 
 
 <br>
-
-<%= link_to 'New Item', new_item_path %>
