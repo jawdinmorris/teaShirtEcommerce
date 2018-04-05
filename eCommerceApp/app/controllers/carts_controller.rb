@@ -26,6 +26,8 @@ class CartsController < ApplicationController
   # POST /carts.json
   def create
     @cart = Cart.new(cart_params)
+    @cart.item.stock_status -= @cart.quantity
+    @cart.item.save
 
     respond_to do |format|
       if @cart.save
