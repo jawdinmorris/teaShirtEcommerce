@@ -54,17 +54,29 @@
             <li class="nav-item">
               <%= link_to 'View Produce', items_path, class: "nav-link active" %>
             </li>
-            <li class="nav-item">
-              <%= link_to "ADMIN", '/admin_show', :method => :get, class: "nav-link active" if current_user.admin == true %>
+
+            <% if user_signed_in? && current_user.admin != nil || false %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Admin Functions
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to "Edit Item List", '/admin_show', :method => :get, class: "dropdown-item"  %>
+                <div class="dropdown-divider"></div>
+                <%= link_to "User Accounts", '/index', :method => :get, class: "dropdown-item"  %>
+              </div>
             </li>
+            <% end %>
+
+
+
           </ul>
 
 
         </ul>
+
         <% if user_signed_in? %>
-
         <ul class="navbar-nav mr-0">
-
           <li class="nav-item">
             <%= link_to 'Cart', carts_path, class: "nav-link active" %>
           </li>

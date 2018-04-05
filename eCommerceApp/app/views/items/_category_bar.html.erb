@@ -1,0 +1,21 @@
+
+<ul class="nav justify-content-center">
+  <li class="nav-item">
+    <button class="category_button" data-cat="all" onclick="button()">All Produce</button>
+  </li>
+
+  <% category_array = [] %>
+
+  <% @items.each do |item| %>
+
+      <% category_array.push(item.category)%>
+
+  <% end %>
+  <% category_array.uniq!.each do |category| %>
+  <li class="nav-item">
+    <button class="category_button" data-cat="<%= category %>" onclick="button()"><%= category %></button>
+  </li>
+  <% end %>
+
+
+</ul>

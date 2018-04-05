@@ -19,7 +19,7 @@
   <tbody>
 
 
-    <% @carts.each do |cart| %>
+    <% current_user.carts.each do |cart| %>
 
     <% price = cart.quantity * cart.item.price %>
 

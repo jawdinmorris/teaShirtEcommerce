@@ -19,8 +19,19 @@
     <%= form.hidden_field :user_id, id: :cart_user_id %>
   </div>
 
+
+
+  <%   @stock_array = [] %>
+  <%   count = 0 %>
+  <%   until count == item.stock_status + 1 %>
+  <%     @stock_array.push(count) %>
+  <%     count += 1 %>
+  <%   end %>
+  <%   @stock_array %>
+
+
   <div class="field">
-      <p>Quantity:  <%= form.number_field :quantity, id: :cart_quantity, class: "cart_qty_field", value: "" %></p>
+      <p>Quantity:  <%= form.select :user_choice, @stock_array %></p>
   </div>
 
   <div class="actions">
