@@ -1,18 +1,21 @@
-<div class = "container">
+
+<div class = "profiles">
 <h1> <%= @user.first_name %> <%= @user.last_name %> <h1>
 <h2> Contact </h2>
-<ul>
+
+<ul, list-style: "none">
 <li><%= @user.email %></li>
 <li><%= @user.address %></li>
 </ul>
 
-
+</div>
 
 
 
 <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-link" if current_user ==  @user %>
 
-<%= button_to "Delete Account Forever", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></div>
-
+<% if current_user.admin == true %>
+<%= button_to "Delete Account Forever", registration_path(:user), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %>
 <h2>User's cart</h2>
 <%= render 'user_cart', user: @user %>
+<% end %>
