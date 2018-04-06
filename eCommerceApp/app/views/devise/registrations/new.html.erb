@@ -38,6 +38,14 @@
     <%= f.password_field :password_confirmation, autocomplete: "off",  class: "form-control" %>
   </div>
 
+  <div class="field">
+    <%= f.hidden_field :admin, id: :admin, value: false %>
+  </div>
+
+  <div class="field">
+    <%= f.hidden_field :enabled, id: :enabled, value: true %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign Up", class: 'btn btn-success' %>
   </div>

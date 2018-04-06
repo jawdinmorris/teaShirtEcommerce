@@ -13,18 +13,21 @@
   <%= link_to 'Edit', edit_item_path(item) if user_signed_in? && current_user.admin == true %>
   <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } if user_signed_in? && current_user.admin == true %>
 
-<% if item.stock_status != 0 %>
-  <% if user_signed_in? && current_user.admin != true %>
-    <% if cart_check.empty? || cart_check[0].quantity == 0 %>
-      <%= render 'carts/form', cart: Cart.new(user_id: current_user.id, item_id: item.id), text_before: "Quantity: ", button_text: "add to cart", item: item  %>
-    <% else %>
-        <%= render 'carts/form', cart: cart_check[0], button_text: "update cart", item: item %>
-
-
-    <% end %>
-  <% end %>
+<% if current_user.enabled == false %>
+  <p style="margin-top: 15px; padding: 15px; background: red;"> Your account was locked for being a baaaaaad hacker-man. </p>
 <% else %>
-<p style="margin-top: 60px;"> Out of stock! </p>
 
+  <% if item.stock_status != 0 %>
+    <% if user_signed_in? && current_user.admin != true %>
+      <% if cart_check.empty? || cart_check[0].quantity == 0 %>
+        <%= render 'carts/form', cart: Cart.new(user_id: current_user.id, item_id: item.id), text_before: "Quantity: ", button_text: "add to cart", item: item  %>
+      <% else %>
+          <%= render 'carts/form', cart: cart_check[0], button_text: "update cart", item: item %>
+      <% end %>
+    <% end %>
+
+  <% else %>
+  <p style="margin-top: 60px;"> Out of stock! </p>
+  <% end %>
 <% end %>
 </div>
