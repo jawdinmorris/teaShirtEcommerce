@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Admin status</th>
       <th>first name</th>
       <th>last name</th>
       <th>email</th>
@@ -14,11 +15,14 @@
 
   <tbody>
     <% @users.each do |user| %>
+
       <tr>
+        <td style="color: red;"><%= "ADMIN" if user.admin == true %></td>
         <td><%= user.first_name %></td>
         <td><%= user.last_name %></td>
         <td><%= user.email %></td>
         <td><%= link_to "Show User's details", user %></td>
+        <td><%= render 'form', user: user %></td>
       </tr>
     <% end %>
   </tbody>
