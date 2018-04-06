@@ -1,6 +1,7 @@
-#landing_header{
+#landing_title{
   text-align: center;
-  margin-top: 20%;
+  position: absolute;
+  top: 40%;
   background-color: white;
   opacity: 0.85;
   color: black;
@@ -24,3 +25,13 @@
 //     image: asset-url("julian-hanslmaier-77279-unsplash.jpg");
 //   }
 // }
+.profiles{
+  // display: flex;
+
+  text-align: center;
+  font-size: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+}
