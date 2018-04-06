@@ -29,10 +29,8 @@ class CartsController < ApplicationController
   def create
     @cart = Cart.new(cart_params)
 
-    @cart.item.stock_status -= @cart.user_choice
-    @cart.item.save
-    @cart.quantity = 0
-    @cart.quantity += @cart.user_choice
+    @cart.item.stock_status -= cart_params[:user_choice].to_i
+    @cart.quantity = cart_params[:user_choice].to_i
     @cart.item.save
 
     respond_to do |format|
@@ -50,16 +48,13 @@ class CartsController < ApplicationController
   # PATCH/PUT /carts/1
   # PATCH/PUT /carts/1.json
   def update
-    @cart.item.stock_status -= @cart.user_choice
-    @cart.quantity += @cart.user_choice
-    @cart.item.save
+    @cart.item.stock_status -= cart_params[:user_choice].to_i
+    @cart.quantity += cart_params[:user_choice].to_i
     @cart.item.save
 
 
     respond_to do |format|
       if @cart.update(cart_params)
-
-        @cart.user_choice = 0
         format.html { redirect_to items_path, notice: 'Cart was successfully updated.' }
         format.json { render :show, status: :ok, location: @cart }
       else

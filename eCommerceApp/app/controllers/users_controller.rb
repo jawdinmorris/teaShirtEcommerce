@@ -11,6 +11,14 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+  def destroy
+    @user = User.find(params[:id])
+    respond_to do |format|
+      format.html { redirect_to items_url, notice: 'Account was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
 
   def set_admin_rights
