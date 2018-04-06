@@ -1,0 +1,24 @@
+
+
+
+<% cart_check = current_user.carts.where(item_id: item.id) %>
+
+<div class="item_box initial_hide all <%= item.category %>">
+  <div class="img_box" ><%= image_tag item.image_url(:product_image), class: "item_img" %></div>
+  <div style="font-weight: bolder;"><%= item.name %></div>
+  <div style="font-weight: bolder;">$<%= item.price %></div>
+  <div style="font-weight: bolder;">Stock level: <%= item.stock_status %></div>
+  <%= link_to 'Show', item if current_user.admin == true %>
+  <%= link_to 'Edit', edit_item_path(item) if current_user.admin == true %>
+  <%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } if current_user.admin == true %>
+
+  <% if user_signed_in? && current_user.admin != true %>
+    <% if cart_check.empty? || cart_check[0].quantity == 0 %>
+      <%= render 'carts/form', cart: Cart.new(user_id: current_user.id, item_id: item.id), text_before: "Quantity: ", button_text: "add to cart", item: item  %>
+    <% else %>
+        <%= render 'carts/form', cart: cart_check[0], button_text: "update cart", item: item %>
+
+
+    <% end %>
+  <% end %>
+</div>

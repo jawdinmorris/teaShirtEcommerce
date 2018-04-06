@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 <div class=cart>
 <h1>My Cart</h1>
 
@@ -15,10 +15,14 @@
       <th colspan="6"></th>
     </tr>
   </thead>
-<% if @carts != nil  %>
+<% if @user.carts != nil  %>
   <tbody>
-    <% current_user.carts.each do |cart| %>
+
+
+    <% @user.carts.each do |cart| %>
+
     <% price = cart.quantity * cart.item.price %>
+
       <tr>
         <td><%= image_tag cart.item.image_url(:thumb) %></td>
         <td><%= cart.item.name %></td>
@@ -30,6 +34,7 @@
         <td><%= link_to 'Details', controller: :items, action: :show, id: cart.item.id %>
         <td><%= link_to 'Delete', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+
     <% end %>
 
 

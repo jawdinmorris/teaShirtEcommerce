@@ -5,5 +5,13 @@
 <li><%= @user.email %></li>
 <li><%= @user.address %></li>
 </ul>
+
+<h2> Current Cart </h2>
+<% if @carts != nil  %>
+    <% @carts.each do |cart| %>
+    <%= cart.item.name %>
+      <% end %>
+      <% end %>
 <%= link_to 'Edit Profile', edit_user_registration_path, class: "nav-link" %>
 </div>
+<%= render 'user_cart', user: @user %>
